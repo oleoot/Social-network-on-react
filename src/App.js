@@ -9,9 +9,6 @@ import Profile from './components/Profile';
 function App() {
   const [friends, addFriend] = useState(false)
 
-  // function Addfriend(friends) {
-  //   addFriend(!friends)
-  // }
 
 
 
