@@ -7,7 +7,6 @@ import React, { useState } from 'react';
 
 function Profile(props) {
 
-    console.log(props.friends)
     function AddFriend(friends) {
         props.updateFriend(!friends)
     }
@@ -19,8 +18,8 @@ function Profile(props) {
                     <div>
                         <img src={require(`../img/avatar-grey-cropped.jpg`)} alt="" />
                         {props.friends === false ?
-                            <button onClick={() => { AddFriend() }}>Добавить в друзья</button> :
-                            <button onClick={() => { AddFriend() }}>Заявка отправлена</button>
+                            <button onClick={() => { AddFriend(props.friends) }}>Добавить в друзья</button> :
+                            <button onClick={() => { AddFriend(props.friends) }}>Заявка отправлена</button>
                         }
                     </div>
                     <div>
