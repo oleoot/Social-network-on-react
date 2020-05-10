@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 
@@ -25,6 +25,15 @@ function Post({ post, index }) {
 function Profile(props) {
     const [posts, setPost] = useState([])
     const [clickPost, openPostPane] = useState(false);
+    const [popup, ShowPopup] = useState(false)
+
+    useEffect(() => {
+        TogglePopup(popup)
+    }, [props.friends])
+
+    function TogglePopup(popup) {
+        ShowPopup(!popup)
+    }
 
     function AddFriend(friends) {
         props.updateFriend(!friends)
@@ -57,21 +66,16 @@ function Profile(props) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     return (
         <div className="container">
+            {popup === false ?
+                <div className="popup">
+                    <p>Заявка отправлена</p>
+                </div> :
+
+                <div></div>
+            }
+
             <div className="profile">
                 <div className="profile-about">
                     <div>
@@ -94,16 +98,6 @@ function Profile(props) {
                         <ul className="prof-ul">
                             <div onClick={() => openPostPane(!clickPost)}>
                                 <p>Посты</p>
-                                {/* {clickPost === true ?
-                                    <div>
-                                        <PostForm addPost={addPost} />
-                                        {posts.map((post, index) => (
-                                            <Post key={index} index={index} post={post} />
-                                        ))}
-
-                                    </div> :
-                                    <div></div>
-                                } */}
                             </div>
                             <div><p>Друзья</p></div>
                             <div><p>Сообщества</p></div>

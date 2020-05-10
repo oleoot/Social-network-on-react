@@ -149,3 +149,20 @@ height: 40px;
 display: block;
 margin: 0 0 0 auto;
 }
+.popup{
+width: 800px;
+height: 50px;
+background: green;
+position: fixed;
+top: 100px;
+left: 0;
+right: 0;
+margin: auto;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.popup p{
+color: #fff;
+font-size: 20px;
+}
